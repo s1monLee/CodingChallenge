@@ -1,0 +1,51 @@
+typedef struct {
+    int size;
+    int sum;
+    int arr[10000];
+} Solution;
+
+
+Solution* solutionCreate(int* w, int wSize) {
+    Solution* obj = (Solution*)malloc(sizeof(Solution));
+    obj->sum = 0;
+    obj->size = wSize;
+    for(int i = 0;i<wSize;++i){
+        obj->sum+=w[i];
+        obj->arr[i]=obj->sum;
+    }
+    return obj;
+}
+int binarySearch(int val,Solution* obj){
+    int r = obj->size-1;
+    int l = 0;
+    while(l<r){
+        int mid = l + ((r-l)>>1);
+        if(obj->arr[mid]<val)
+            l = mid+1;
+        else
+            r = mid;
+    }
+    return l;
+}
+int solutionPickIndex(Solution* obj) {
+    int tmp = rand()%obj->sum;
+    //return binarySearch(tmp+1,obj);
+    for(int i=0;i<obj->sum;++i){
+        if(obj->arr[i]<tmp+1)
+            continue;
+        return i;
+    }
+    return obj->size-1;
+}
+
+void solutionFree(Solution* obj) {
+    free(obj);
+}
+
+/**
+ * Your Solution struct will be instantiated and called as such:
+ * Solution* obj = solutionCreate(w, wSize);
+ * int param_1 = solutionPickIndex(obj);
+ 
+ * solutionFree(obj);
+*/
