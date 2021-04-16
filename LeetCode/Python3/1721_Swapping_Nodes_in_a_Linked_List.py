@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def swapNodes(self, head: ListNode, k: int) -> ListNode:
-        first = second = slow = fast = head
+        first = slow = fast = head
         for _ in range(1,k):
             fast = fast.next
         first = fast
