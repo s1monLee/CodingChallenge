@@ -81,7 +81,6 @@ class MyLinkedList:
         Delete the index-th node in the linked list, if the index is valid.
         """
         if not self.head or self.size < index: return
-        self.size -= 1
         
         h = self.head
         if not h.next:
@@ -97,6 +96,7 @@ class MyLinkedList:
                 return
             h = h.next
             index -= 1
+        self.size -= 1
 
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
