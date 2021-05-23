@@ -14,6 +14,7 @@ class Solution:
             bits |= a
         return bits * int(pow(2, len(nums)-1))
 """
+"""
         self.ans = 0
         def bfs(nums: List[int], pos: int, cur: int):
             if pos == len(nums):
