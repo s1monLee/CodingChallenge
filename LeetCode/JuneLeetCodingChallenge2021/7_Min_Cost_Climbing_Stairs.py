@@ -6,5 +6,4 @@ class Solution:
             tmp = cost[i] + min(dp0, dp1)
             dp0 = dp1
             dp1 = tmp
-            print(tmp, dp0, dp1)
         return min(dp0, dp1)
